@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5r0xwmvvv1np"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Explosion.cs" id="1_trijm"]
+[ext_resource type="Texture2D" uid="uid://3t5fhr0frusy" path="res://ReferencedAssets/Textures/explosion.png" id="2_unqlo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rn1k"]
+atlas = ExtResource("2_unqlo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2m1g"]
+atlas = ExtResource("2_unqlo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phun3"]
+atlas = ExtResource("2_unqlo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqiop"]
+atlas = ExtResource("2_unqlo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r2mk"]
+atlas = ExtResource("2_unqlo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1aof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rn1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2m1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phun3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqiop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r2mk")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8pgc"]
+
+[node name="Explosion" type="Area2D" node_paths=PackedStringArray("_Sprite", "_Collision")]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_trijm")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_o1aof")
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+process_mode = 4
+visible = false
+shape = SubResource("CircleShape2D_a8pgc")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

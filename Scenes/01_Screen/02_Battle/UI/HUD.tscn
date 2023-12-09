@@ -1,0 +1,1258 @@
+[gd_scene load_steps=46 format=3 uid="uid://bbe8gjml8hbj6"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/UI/HUD.cs" id="1_j4fb1"]
+[ext_resource type="FontFile" uid="uid://ccibogwvbsnpl" path="res://ReferencedAssets/Fonts/Xolonium-Regular.ttf" id="2_0pnfs"]
+[ext_resource type="Texture2D" uid="uid://ciqd8u4ehuxad" path="res://ReferencedAssets/Textures/Bomb_C.png" id="2_6rhrt"]
+[ext_resource type="Texture2D" uid="uid://daq5l8huoygmr" path="res://ReferencedAssets/Textures/DifusionBomb.png" id="3_2wh82"]
+[ext_resource type="FontFile" uid="uid://de06tef0wcgkj" path="res://ReferencedAssets/Fonts/mplus-2m-bold.ttf" id="3_vb7fx"]
+[ext_resource type="Texture2D" uid="uid://24y7i08uua2r" path="res://ReferencedAssets/Textures/EmissionBomb.png" id="4_22bmg"]
+[ext_resource type="Texture2D" uid="uid://jottropxhghq" path="res://ReferencedAssets/Textures/Bomb_D.png" id="4_enb4f"]
+[ext_resource type="Texture2D" uid="uid://d0bnlsl6x35k2" path="res://ReferencedAssets/Textures/ShotSpeed.png" id="4_o0sof"]
+[ext_resource type="Texture2D" uid="uid://cwmucspfulabg" path="res://ReferencedAssets/Textures/Shield_Label.png" id="4_v2v5l"]
+[ext_resource type="Texture2D" uid="uid://bx3voygicvdow" path="res://ReferencedAssets/Textures/ShotSpeed_Gauge.bmp" id="5_5tq2n"]
+[ext_resource type="Texture2D" uid="uid://1btxs8tl0do2" path="res://ReferencedAssets/Textures/Shield_Gauge.png" id="5_vulxs"]
+[ext_resource type="Texture2D" uid="uid://bv5ixdal557ag" path="res://ReferencedAssets/Textures/Bomb_E.png" id="6_bf3bk"]
+[ext_resource type="Texture2D" uid="uid://byqjluhxm5geu" path="res://ReferencedAssets/Textures/Bomb_Cooldown.png" id="6_ldwbr"]
+[ext_resource type="Texture2D" uid="uid://du3jp4jnr5yin" path="res://ReferencedAssets/Textures/Shield_Duration.png" id="8_0vjba"]
+[ext_resource type="Texture2D" uid="uid://cj1o0jutl8idk" path="res://ReferencedAssets/Textures/flash.png" id="8_ubl1a"]
+[ext_resource type="Texture2D" uid="uid://dmtyclfqa471r" path="res://ReferencedAssets/Textures/CompressionBomb.png" id="9_pgv6v"]
+[ext_resource type="Texture2D" uid="uid://dogxr7aro0f5i" path="res://ReferencedAssets/Textures/Bomb_Cursor.png" id="15_v7hvk"]
+
+[sub_resource type="Animation" id="Animation_noalw"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1tcr"]
+_data = {
+"FadeIn": SubResource("Animation_noalw")
+}
+
+[sub_resource type="Animation" id="Animation_wxnt8"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Annotation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pqpv"]
+_data = {
+"default": SubResource("Animation_wxnt8")
+}
+
+[sub_resource type="Animation" id="Animation_hv43l"]
+resource_name = "In"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_siu8y"]
+resource_name = "Out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lg1bi"]
+_data = {
+"In": SubResource("Animation_hv43l"),
+"Out": SubResource("Animation_siu8y")
+}
+
+[sub_resource type="Animation" id="Animation_rdb6p"]
+resource_name = "FadeIn"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fp8xy"]
+_data = {
+"FadeIn": SubResource("Animation_rdb6p")
+}
+
+[sub_resource type="Animation" id="Animation_tgf8r"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("View Base/Over:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_koes2"]
+_data = {
+"default": SubResource("Animation_tgf8r")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c56v"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbky4"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ns4n"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxsgq"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imq5r"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyewx"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1cjm"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh2km"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y7d4"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rp1v"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idp3r"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61y07"]
+atlas = ExtResource("8_ubl1a")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3g481"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c56v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbky4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ns4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxsgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imq5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyewx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1cjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh2km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y7d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rp1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idp3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61y07")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_t0mgw"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rfomx"]
+_data = {
+"FadeIn": SubResource("Animation_t0mgw")
+}
+
+[sub_resource type="Animation" id="Animation_p2cnh"]
+resource_name = "FadeIn"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("View Base:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_103yi"]
+_data = {
+"FadeIn": SubResource("Animation_p2cnh")
+}
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("_ScoreValue", "_HiScoreValue", "_CrashRateValue", "_HitRateValue", "_LayerTitle", "_Version", "_LayerCombat", "_Pause", "_ShotSpeedBase", "_ShotSpeed", "_ShieldBase", "_ShieldFrame", "_ShiledGauges", "_ShieldDuration", "_BombBase", "_BombFrame", "_BombName", "_BombStocks", "_BombCursor", "_BombCooldown", "_BonusBase", "_Bonus", "_BonusAnimationPlayer", "_LayerDefeat", "_DefeatAnimationPlayer", "_SurvivalTime", "_AnnounceBase", "_AnnounceAnimation", "_Flash", "_FlashAnimation")]
+script = ExtResource("1_j4fb1")
+_ScoreValue = NodePath("Score Base/Score Value")
+_HiScoreValue = NodePath("Hi Score Base/Hi Score Value")
+_CrashRateValue = NodePath("CrashRate Base/CrashRate Value")
+_HitRateValue = NodePath("HitRate Base/HitRate Value")
+_LayerTitle = NodePath("Layer Title")
+_Version = NodePath("Layer Title/View Base/Version")
+_LayerCombat = NodePath("Layer Combat")
+_Pause = NodePath("Layer Combat/View Base/Pause")
+_ShotSpeedBase = NodePath("Layer Combat/View Base/Shot Speed Base")
+_ShotSpeed = NodePath("Layer Combat/View Base/Shot Speed Base/Shot Speed")
+_ShieldBase = NodePath("Layer Combat/View Base/Shield Base")
+_ShieldFrame = NodePath("Layer Combat/View Base/Shield Base/Frame")
+_ShiledGauges = [NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 0"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 1"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 2"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 3"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 4"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 5"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 6"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 7"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 8"), NodePath("Layer Combat/View Base/Shield Base/Frame/Gauge 9")]
+_ShieldDuration = NodePath("Layer Combat/View Base/Shield Base/Duration")
+_BombBase = NodePath("Layer Combat/View Base/Bomb Base")
+_BombFrame = NodePath("Layer Combat/View Base/Bomb Base/Frame")
+_BombName = NodePath("Layer Combat/View Base/Bomb Base/Frame/Name")
+_BombStocks = [NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 0"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 1"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 2"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 3"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 4"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 5"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 6"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 7"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 8"), NodePath("Layer Combat/View Base/Bomb Base/Frame/Stock 9")]
+_BombCursor = NodePath("Layer Combat/View Base/Bomb Base/Cursor")
+_BombCooldown = NodePath("Layer Combat/View Base/Bomb Base/Cooldown")
+_BombNames = [ExtResource("9_pgv6v"), ExtResource("3_2wh82"), ExtResource("4_22bmg")]
+_BombIcons = [ExtResource("2_6rhrt"), ExtResource("4_enb4f"), ExtResource("6_bf3bk")]
+_BonusBase = NodePath("Layer Combat/View Base/Bonus Base")
+_Bonus = NodePath("Layer Combat/View Base/Bonus Base/Bonus Value")
+_BonusAnimationPlayer = NodePath("Layer Combat/View Base/Bonus Base/Bonus AnimationPlayer")
+_LayerDefeat = NodePath("Layer Defeat")
+_DefeatAnimationPlayer = NodePath("Layer Defeat/Defeat AnimationPlayer")
+_SurvivalTime = NodePath("Layer Defeat/View Base/SurvivalTime Base/SurvivalTime Value")
+_AnnounceBase = NodePath("Layer Defeat/View Base/AnnounceBase")
+_AnnounceAnimation = NodePath("Layer Defeat/View Base/AnnounceBase/Announce AnimationPlayer")
+_Flash = NodePath("Layer Defeat/View Base/AnnounceBase/Flash")
+_FlashAnimation = NodePath("Layer Defeat/View Base/AnnounceBase/Flash/Flash AnimatedSprite2D")
+
+[node name="Score Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_right = 22.0
+offset_bottom = 64.0
+grow_horizontal = 2
+pivot_offset = Vector2(138, 0)
+
+[node name="Score Label" type="Label" parent="Score Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.5
+offset_top = -1.14898e-05
+offset_right = 38.5
+offset_bottom = 28.0
+grow_horizontal = 2
+pivot_offset = Vector2(38.5, 0)
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 20
+text = "SCORE"
+horizontal_alignment = 1
+
+[node name="Score Value" type="Label" parent="Score Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.5
+offset_top = 8.00002
+offset_right = 67.5
+offset_bottom = 80.0
+grow_horizontal = 2
+pivot_offset = Vector2(140, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 56
+text = "0000000"
+horizontal_alignment = 1
+
+[node name="Hi Score Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 32.0
+offset_right = 192.0
+offset_bottom = 48.0
+grow_horizontal = 2
+pivot_offset = Vector2(80, 0)
+
+[node name="Hi Score Label" type="Label" parent="Hi Score Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_top = 3.99999
+offset_right = 32.5
+offset_bottom = 23.0
+grow_horizontal = 2
+pivot_offset = Vector2(32.5, 0)
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 12
+text = "HI-SCORE"
+horizontal_alignment = 1
+
+[node name="Hi Score Value" type="Label" parent="Hi Score Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_top = 12.0
+offset_right = 34.5
+offset_bottom = 54.0
+grow_horizontal = 2
+pivot_offset = Vector2(80.5, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 32
+text = "0000000"
+horizontal_alignment = 1
+
+[node name="CrashRate Base" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 3.99998
+offset_right = -4.0
+offset_bottom = 52.0
+grow_horizontal = 0
+pivot_offset = Vector2(68, 0)
+
+[node name="CrashRate Label" type="Label" parent="CrashRate Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_vb7fx")
+theme_override_font_sizes/font_size = 20
+text = "撃破率"
+horizontal_alignment = 1
+
+[node name="CrashRate Value" type="Label" parent="CrashRate Base"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 51.0
+grow_horizontal = 0
+scale = Vector2(0.75, 1)
+pivot_offset = Vector2(40, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 16
+text = "100.00%"
+horizontal_alignment = 1
+
+[node name="HitRate Base" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 52.0
+offset_right = -4.0
+offset_bottom = 100.0
+grow_horizontal = 0
+pivot_offset = Vector2(68, 0)
+
+[node name="HitRate Label" type="Label" parent="HitRate Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_vb7fx")
+theme_override_font_sizes/font_size = 20
+text = "命中率"
+horizontal_alignment = 1
+
+[node name="HitRate Value" type="Label" parent="HitRate Base"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 51.0
+grow_horizontal = 0
+pivot_offset = Vector2(32, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_vb7fx")
+theme_override_font_sizes/font_size = 16
+text = "100.00%"
+horizontal_alignment = 1
+
+[node name="Layer Title" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="View Base" type="Control" parent="Layer Title"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Layer Title/View Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -466.5
+offset_top = -159.0
+offset_right = 466.5
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 1)
+pivot_offset = Vector2(466.5, 39)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.741176, 0.611765, 0.74902, 1)
+theme_override_constants/shadow_offset_y = 16
+theme_override_constants/shadow_outline_size = 30
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_0pnfs")
+theme_override_font_sizes/normal_font_size = 64
+text = "SAMPLE SHOOTING GAME"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Genre" type="Label" parent="Layer Title/View Base"]
+custom_minimum_size = Vector2(320, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -78.0
+offset_right = 160.0
+offset_bottom = -50.0
+grow_vertical = 0
+pivot_offset = Vector2(160, 14)
+theme_override_colors/font_color = Color(1, 0.498039, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 20
+text = "The rogue lite shooting"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="Layer Title/View Base"]
+custom_minimum_size = Vector2(320, 20)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -28.0
+offset_right = 160.0
+grow_vertical = 0
+pivot_offset = Vector2(160, 28)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 20
+text = "Version 0.0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer Title/View Base"]
+root_node = NodePath("../Title")
+autoplay = "FadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_j1tcr")
+}
+
+[node name="Annotation" type="Label" parent="Layer Title"]
+modulate = Color(1, 1, 1, 0.370634)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = 47.5
+offset_right = 97.5
+offset_bottom = 80.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(97.5, 16.5)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 24
+text = "PUSH BUTTON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer Title/Annotation"]
+root_node = NodePath("../..")
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_0pqpv")
+}
+
+[node name="Layer Combat" type="CanvasLayer" parent="."]
+
+[node name="View Base" type="Control" parent="Layer Combat"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shot Speed Base" type="Control" parent="Layer Combat/View Base"]
+modulate = Color(1, 1, 1, 0.752941)
+anchors_preset = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -88.0
+offset_right = 88.0
+offset_bottom = -72.0
+
+[node name="Label" type="TextureRect" parent="Layer Combat/View Base/Shot Speed Base"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 10.0
+texture = ExtResource("4_o0sof")
+
+[node name="Shot Speed" type="TextureRect" parent="Layer Combat/View Base/Shot Speed Base"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 61.0
+pivot_offset = Vector2(0, 4)
+texture = ExtResource("5_5tq2n")
+
+[node name="Shield Base" type="Control" parent="Layer Combat/View Base"]
+modulate = Color(1, 1, 1, 0.752941)
+anchors_preset = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -60.0
+offset_right = 248.0
+offset_bottom = -16.0
+pivot_offset = Vector2(0, 44)
+
+[node name="Frame" type="Control" parent="Layer Combat/View Base/Shield Base"]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 10)
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 10.0
+texture = ExtResource("4_v2v5l")
+
+[node name="Gauge 0" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 24.0
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 1" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -32.0
+offset_right = 48.0
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 2" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -32.0
+offset_right = 72.0
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 3" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = -32.0
+offset_right = 96.0
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 4" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -32.0001
+offset_right = 120.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 5" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -32.0001
+offset_right = 144.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 6" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = -32.0001
+offset_right = 168.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 7" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = -32.0001
+offset_right = 192.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 8" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = -32.0001
+offset_right = 216.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Gauge 9" type="TextureRect" parent="Layer Combat/View Base/Shield Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 216.0
+offset_top = -32.0001
+offset_right = 240.0
+offset_bottom = -6.10352e-05
+pivot_offset = Vector2(0, 32)
+texture = ExtResource("5_vulxs")
+
+[node name="Duration" type="TextureRect" parent="Layer Combat/View Base/Shield Base"]
+texture_filter = 1
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = 240.0
+offset_bottom = 8.0
+pivot_offset = Vector2(0, 4)
+texture = ExtResource("8_0vjba")
+
+[node name="Bomb Base" type="Control" parent="Layer Combat/View Base"]
+modulate = Color(1, 1, 1, 0.752941)
+anchors_preset = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -60.0
+offset_right = -8.0
+offset_bottom = -16.0
+pivot_offset = Vector2(168, 44)
+
+[node name="Frame" type="Control" parent="Layer Combat/View Base/Bomb Base"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -128.0
+offset_bottom = 10.0
+pivot_offset = Vector2(128, 0)
+texture = ExtResource("9_pgv6v")
+
+[node name="Stock 0" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -32.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 1" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -32.0
+offset_right = -24.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 2" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -32.0
+offset_right = -48.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 3" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -32.0
+offset_right = -72.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 4" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -32.0
+offset_right = -96.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 5" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -32.0
+offset_right = -120.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 6" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -32.0
+offset_right = -144.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 7" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -32.0
+offset_right = -168.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 8" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -32.0
+offset_right = -192.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Stock 9" type="TextureRect" parent="Layer Combat/View Base/Bomb Base/Frame"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -32.0
+offset_right = -216.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("2_6rhrt")
+
+[node name="Cursor" type="TextureRect" parent="Layer Combat/View Base/Bomb Base"]
+texture_filter = 1
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -32.0
+pivot_offset = Vector2(24, 32)
+texture = ExtResource("15_v7hvk")
+
+[node name="Cooldown" type="TextureRect" parent="Layer Combat/View Base/Bomb Base"]
+texture_filter = 1
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = 4.0
+offset_bottom = 8.0
+pivot_offset = Vector2(240, 4)
+texture = ExtResource("6_ldwbr")
+
+[node name="Bonus Base" type="Control" parent="Layer Combat/View Base"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 80.0
+offset_right = 120.0
+offset_bottom = 160.0
+pivot_offset = Vector2(120, 0)
+
+[node name="Bonus Label" type="Label" parent="Layer Combat/View Base/Bonus Base"]
+custom_minimum_size = Vector2(160, 24)
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_right = 80.0
+offset_bottom = 23.0
+pivot_offset = Vector2(80, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 16
+text = "BONUS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bonus Value" type="Label" parent="Layer Combat/View Base/Bonus Base"]
+custom_minimum_size = Vector2(160, 24)
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 43.0
+pivot_offset = Vector2(80, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 20
+text = "999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bonus AnimationPlayer" type="AnimationPlayer" parent="Layer Combat/View Base/Bonus Base"]
+libraries = {
+"": SubResource("AnimationLibrary_lg1bi")
+}
+
+[node name="Pause" type="Label" parent="Layer Combat/View Base"]
+custom_minimum_size = Vector2(160, 48)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 56.0
+pivot_offset = Vector2(80, 24)
+theme_override_colors/font_color = Color(1, 0.627451, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 32
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer Combat/View Base"]
+autoplay = "FadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_fp8xy")
+}
+
+[node name="Layer Defeat" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="View Base" type="Control" parent="Layer Defeat"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(270, 400)
+
+[node name="Over" type="Label" parent="Layer Defeat/View Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -78.5
+offset_right = 162.0
+offset_bottom = -17.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(162, 30.5)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Layer Defeat/View Base/Over"]
+root_node = NodePath("../../..")
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_koes2")
+}
+
+[node name="SurvivalTime Base" type="Control" parent="Layer Defeat/View Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 48.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(60, 0)
+
+[node name="SurvivalTime Label" type="Label" parent="Layer Defeat/View Base/SurvivalTime Base"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 32.0
+grow_horizontal = 0
+pivot_offset = Vector2(40, 0)
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_vb7fx")
+theme_override_font_sizes/font_size = 20
+text = "生存時間"
+horizontal_alignment = 1
+
+[node name="SurvivalTime Value" type="Label" parent="Layer Defeat/View Base/SurvivalTime Base"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 28.0
+offset_right = 60.0
+offset_bottom = 55.0
+grow_horizontal = 0
+scale = Vector2(0.75, 1)
+pivot_offset = Vector2(60, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 24
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="AnnounceBase" type="Control" parent="Layer Defeat/View Base"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 84.0
+offset_right = 240.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(240, 60)
+
+[node name="CONGRATULATIONS" type="Label" parent="Layer Defeat/View Base/AnnounceBase"]
+texture_filter = 1
+custom_minimum_size = Vector2(480, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_right = 240.0
+offset_bottom = 64.0
+pivot_offset = Vector2(240, 0)
+theme_override_colors/font_outline_color = Color(0, 0.431373, 0.490196, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 32
+text = "CONGRATULATIONS !!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="Layer Defeat/View Base/AnnounceBase"]
+texture_filter = 1
+custom_minimum_size = Vector2(480, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 48.0
+offset_right = 240.0
+offset_bottom = 112.0
+pivot_offset = Vector2(240, 0)
+theme_override_colors/font_outline_color = Color(0, 0.588235, 0.490196, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_0pnfs")
+theme_override_font_sizes/font_size = 32
+text = "HI-SCORE Updated"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Flash" type="Node2D" parent="Layer Defeat/View Base/AnnounceBase"]
+position = Vector2(240, 60)
+scale = Vector2(0.5, 0.5)
+
+[node name="Flash AnimatedSprite2D" type="AnimatedSprite2D" parent="Layer Defeat/View Base/AnnounceBase/Flash"]
+sprite_frames = SubResource("SpriteFrames_3g481")
+frame = 11
+frame_progress = 1.0
+
+[node name="Announce AnimationPlayer" type="AnimationPlayer" parent="Layer Defeat/View Base/AnnounceBase"]
+autoplay = "FadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_rfomx")
+}
+
+[node name="Defeat AnimationPlayer" type="AnimationPlayer" parent="Layer Defeat"]
+autoplay = "FadeIn"
+libraries = {
+"": SubResource("AnimationLibrary_103yi")
+}

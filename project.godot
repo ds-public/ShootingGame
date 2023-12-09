@@ -1,0 +1,55 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SAMPLE SHOOTING GAME"
+config/description="This is Sample No.001 Project"
+run/main_scene="res://Scenes/01_Screen/00_Boot/Boot.tscn"
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
+config/icon="res://ReferencedAssets/Textures/Icon.png"
+
+[autoload]
+
+ApplicationManager="*res://Scenes/00_Framework/Managers/ApplicationManager.tscn"
+Profile="*res://Scenes/00_Framework/Profile.tscn"
+Fade="*res://Scenes/00_Framework/Fade.tscn"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=800
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+window/vsync/vsync_mode=0
+
+[dotnet]
+
+project/assembly_name="Sample_001"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/RectTransform/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="PlayerShot"
+2d_physics/layer_3="Enemy"
+2d_physics/layer_4="EnemyBullet"
+2d_physics/layer_5="Item"
+2d_physics/layer_6="Bomb"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

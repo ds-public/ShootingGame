@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8av267t40ds6"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/PlayerOption.cs" id="1_eabx3"]
+[ext_resource type="Shader" path="res://ReferencedAssets/Shaders/Interpolation.gdshader" id="2_iqkko"]
+[ext_resource type="Texture2D" uid="uid://bhdknssk8bjyh" path="res://ReferencedAssets/Textures/Option.png" id="3_mpq4q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hraxe"]
+resource_local_to_scene = true
+shader = ExtResource("2_iqkko")
+shader_parameter/interpolation_value = 0.0
+shader_parameter/interpolation_color = Vector4(1, 1, 1, 1)
+shader_parameter/modulate_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11pgk"]
+atlas = ExtResource("3_mpq4q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnj73"]
+atlas = ExtResource("3_mpq4q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4t1l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11pgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnj73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80qf2"]
+
+[sub_resource type="Animation" id="Animation_k23mi"]
+resource_name = "mve"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dmd0"]
+_data = {
+"mve": SubResource("Animation_k23mi")
+}
+
+[node name="PlayerOption" type="Area2D" node_paths=PackedStringArray("_Sprite", "_Collision")]
+texture_filter = 1
+scale = Vector2(0.916021, 0.916021)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_eabx3")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_hraxe")
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4t1l3")
+autoplay = "default"
+frame_progress = 0.563737
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_80qf2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "mve"
+libraries = {
+"": SubResource("AnimationLibrary_6dmd0")
+}

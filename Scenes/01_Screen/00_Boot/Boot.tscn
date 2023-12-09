@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://co01ab5fwqot1"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/00_Boot/Boot.cs" id="1_q121u"]
+[ext_resource type="FontFile" uid="uid://ccibogwvbsnpl" path="res://ReferencedAssets/Fonts/Xolonium-Regular.ttf" id="2_es0qe"]
+
+[node name="Boot" type="Node2D"]
+script = ExtResource("1_q121u")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Copyright" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -11.5
+offset_right = 42.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(63, 16)
+theme_override_colors/font_shadow_color = Color(0, 0.501961, 0.501961, 1)
+theme_override_colors/font_outline_color = Color(0.752941, 0.752941, 0.752941, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_es0qe")
+theme_override_font_sizes/font_size = 24
+text = "DS Works"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Presents" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 7.5
+offset_right = 56.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(63, 16)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_es0qe")
+theme_override_font_sizes/font_size = 16
+text = "Presents"
+horizontal_alignment = 1
+vertical_alignment = 1

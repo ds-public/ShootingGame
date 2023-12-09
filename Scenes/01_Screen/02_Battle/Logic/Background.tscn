@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://du3rq2538k3kw"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Background.cs" id="1_lmqan"]
+[ext_resource type="Texture2D" uid="uid://dajge1rsx8jpt" path="res://ReferencedAssets/Textures/Stars.png" id="2_wkdo5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wgiy"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_actjl"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twm3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wgiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_actjl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lul5e"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bco3c"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hra5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lul5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bco3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cohkd"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nshq8"]
+atlas = ExtResource("2_wkdo5")
+region = Rect2(8, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_34gnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cohkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nshq8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Background" type="Node2D" node_paths=PackedStringArray("_Layers", "_Stars")]
+script = ExtResource("1_lmqan")
+_Layers = [NodePath("Layer 0"), NodePath("Layer 1"), NodePath("Layer 2")]
+_Stars = [NodePath("Star 0"), NodePath("Star 1"), NodePath("Star 2")]
+
+[node name="Star 0" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_twm3q")
+frame_progress = 0.126699
+
+[node name="Star 1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_2hra5")
+frame_progress = 0.715037
+
+[node name="Star 2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_34gnk")
+frame_progress = 0.0704341
+
+[node name="Layer 0" type="Node2D" parent="."]
+
+[node name="Layer 1" type="Node2D" parent="."]
+
+[node name="Layer 2" type="Node2D" parent="."]

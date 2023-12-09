@@ -1,0 +1,948 @@
+[gd_scene load_steps=35 format=3 uid="uid://ccu78hv1oxsmy"]
+
+[ext_resource type="Texture2D" uid="uid://bbjw11xg5tv4a" path="res://addons/RectTransform/AnchorImages/CB.png" id="1_cak1f"]
+[ext_resource type="Script" path="res://addons/RectTransform/RectTransformPanel.cs" id="1_r1yy3"]
+[ext_resource type="Texture2D" uid="uid://s6qla02k7ae3" path="res://addons/RectTransform/AnchorImages/ALO.png" id="2_55pn8"]
+[ext_resource type="FontFile" uid="uid://ccibogwvbsnpl" path="res://ReferencedAssets/Fonts/Xolonium-Regular.ttf" id="2_afgy0"]
+[ext_resource type="Texture2D" uid="uid://cje5i3tv5aj5i" path="res://addons/RectTransform/AnchorImages/LT.png" id="3_0tsnb"]
+[ext_resource type="Texture2D" uid="uid://pfklbpiankbm" path="res://addons/RectTransform/AnchorImages/ALC.png" id="3_wx5jx"]
+[ext_resource type="Texture2D" uid="uid://ntbickom8rqh" path="res://addons/RectTransform/AnchorImages/CT.png" id="4_f480j"]
+[ext_resource type="Texture2D" uid="uid://drdcde5byuqid" path="res://addons/RectTransform/AnchorImages/RT.png" id="5_vc4ts"]
+[ext_resource type="Texture2D" uid="uid://b12dp303acbw6" path="res://addons/RectTransform/AnchorImages/LM.png" id="6_b64fu"]
+[ext_resource type="Script" path="res://addons/RectTransform/AnchorPresetSelector.cs" id="7_16aj4"]
+[ext_resource type="Texture2D" uid="uid://bvtpjnsjiex3i" path="res://addons/RectTransform/AnchorImages/AA.png" id="7_32pcd"]
+[ext_resource type="Texture2D" uid="uid://daq6yk32mocm0" path="res://addons/RectTransform/AnchorImages/CM.png" id="7_yovab"]
+[ext_resource type="Texture2D" uid="uid://ciejfhpq0ekla" path="res://addons/RectTransform/AnchorImages/LA.png" id="8_iw08n"]
+[ext_resource type="Texture2D" uid="uid://bk8h52xjkhiyy" path="res://addons/RectTransform/AnchorImages/RM.png" id="8_uaqlf"]
+[ext_resource type="Texture2D" uid="uid://c2k3125n7c72r" path="res://addons/RectTransform/AnchorImages/CA.png" id="9_2gxqs"]
+[ext_resource type="Texture2D" uid="uid://cmfohamu4i4fe" path="res://addons/RectTransform/AnchorImages/LB.png" id="9_emhdu"]
+[ext_resource type="Texture2D" uid="uid://bjircmewvp33c" path="res://addons/RectTransform/AnchorImages/RB.png" id="10_36l5y"]
+[ext_resource type="Texture2D" uid="uid://d18b5a4y7s76t" path="res://addons/RectTransform/AnchorImages/RA.png" id="10_wis5w"]
+[ext_resource type="Texture2D" uid="uid://bwtkk8xf72r8l" path="res://addons/RectTransform/AnchorImages/ST.png" id="11_b1jfh"]
+[ext_resource type="Texture2D" uid="uid://cugt27fnryb3t" path="res://addons/RectTransform/AnchorImages/SA.png" id="11_l5cf4"]
+[ext_resource type="Texture2D" uid="uid://c83albcpmf1n6" path="res://addons/RectTransform/AnchorImages/SM.png" id="12_461vv"]
+[ext_resource type="Texture2D" uid="uid://bdtk784d6mb1p" path="res://addons/RectTransform/AnchorImages/AT.png" id="12_vbqhb"]
+[ext_resource type="Texture2D" uid="uid://bjtxy30c5t1gv" path="res://addons/RectTransform/AnchorImages/SB.png" id="13_bmk4c"]
+[ext_resource type="Texture2D" uid="uid://doahk2g5rgx6x" path="res://addons/RectTransform/AnchorImages/LS.png" id="14_uvpus"]
+[ext_resource type="Texture2D" uid="uid://cspgccmwiaoxq" path="res://addons/RectTransform/AnchorImages/CS.png" id="15_c475k"]
+[ext_resource type="Texture2D" uid="uid://d1bb85sh66tlw" path="res://addons/RectTransform/AnchorImages/RS.png" id="16_lr8mt"]
+[ext_resource type="Texture2D" uid="uid://caljkofjksct4" path="res://addons/RectTransform/AnchorImages/AM.png" id="17_fhcid"]
+[ext_resource type="Texture2D" uid="uid://sh3g84tq4ex3" path="res://addons/RectTransform/AnchorImages/SS.png" id="17_x4687"]
+[ext_resource type="Texture2D" uid="uid://droju7gjb815l" path="res://addons/RectTransform/AnchorImages/AB.png" id="22_xj28t"]
+[ext_resource type="Texture2D" uid="uid://dbrj8ilggqfb" path="res://addons/RectTransform/AnchorImages/AS.png" id="26_g61ff"]
+[ext_resource type="Texture2D" uid="uid://c7cwwcnir771g" path="res://addons/RectTransform/AnchorImages/CLOSE.png" id="32_ueuq5"]
+[ext_resource type="StyleBox" uid="uid://i0tmh72b6xg6" path="res://ReferencedAssets/Textures/Styles/Button.tres" id="32_w54wh"]
+[ext_resource type="Texture2D" uid="uid://3xqpnbvj3kh3" path="res://addons/RectTransform/AnchorImages/AnchorPresetTitle.png" id="33_kwfv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8aco"]
+bg_color = Color(0.12549, 0.25098, 0.25098, 1)
+
+[node name="Panel Root" type="Panel" node_paths=PackedStringArray("_BaseContainer", "_AnchorTypeX", "_AnchorTypeY", "_AnchorPresetButton", "_AnchorPresetSelector", "_AnchorToggleButton", "_PositionX", "_PositionY", "_SizeX", "_SizeY", "_AnchorMin_Base", "_AnchorMinX", "_AnchorMinY", "_AnchorMax_Base", "_AnchorMaxX", "_AnchorMaxY", "_PivotX", "_PivotY", "_RotationZ_Base", "_RotationZ", "_ScaleX", "_ScaleY", "_Label_L", "_Label_R", "_Label_T", "_Label_B", "_InvalidMask")]
+custom_minimum_size = Vector2(384, 272)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 272.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b8aco")
+script = ExtResource("1_r1yy3")
+_BaseContainer = NodePath("PanelContainer Base")
+_AnchorTypeX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton/Anchor Type X")
+_AnchorTypeY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton/Anchor Type Y")
+_AnchorPresetButton = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton")
+_AnchorPresetSelector = NodePath("Anchor Preset Selector")
+_AnchorToggleButton = NodePath("PanelContainer Base/VBoxContainer/MarginContainer/Anchor Toggle Button")
+_PositionX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position/SpinBox X")
+_PositionY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position/SpinBox Y")
+_SizeX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size/SpinBox W")
+_SizeY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size/SpinBox H")
+_AnchorMin_Base = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min")
+_AnchorMinX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min/SpinBox X")
+_AnchorMinY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min/SpinBox Y")
+_AnchorMax_Base = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max")
+_AnchorMaxX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max/SpinBox X")
+_AnchorMaxY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max/SpinBox Y")
+_PivotX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Pivot/SpinBox X")
+_PivotY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Pivot/SpinBox Y")
+_RotationZ_Base = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Rotation")
+_RotationZ = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Rotation/SpinBox Z")
+_ScaleX = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Scale/SpinBox X")
+_ScaleY = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer Scale/SpinBox Y")
+_Label_L = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position/Label X")
+_Label_R = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size/Label W")
+_Label_T = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position/Label Y")
+_Label_B = NodePath("PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size/Label H")
+_AnchorSwitch_O = ExtResource("2_55pn8")
+_AnchorSwitch_C = ExtResource("3_wx5jx")
+_AnchorPresetImages = [ExtResource("7_32pcd"), ExtResource("8_iw08n"), ExtResource("9_2gxqs"), ExtResource("10_wis5w"), ExtResource("11_l5cf4"), ExtResource("12_vbqhb"), ExtResource("3_0tsnb"), ExtResource("4_f480j"), ExtResource("5_vc4ts"), ExtResource("11_b1jfh"), ExtResource("17_fhcid"), ExtResource("6_b64fu"), ExtResource("7_yovab"), ExtResource("8_uaqlf"), ExtResource("12_461vv"), ExtResource("22_xj28t"), ExtResource("9_emhdu"), ExtResource("1_cak1f"), ExtResource("10_36l5y"), ExtResource("13_bmk4c"), ExtResource("26_g61ff"), ExtResource("14_uvpus"), ExtResource("15_c475k"), ExtResource("16_lr8mt"), ExtResource("17_x4687")]
+_InvalidMask = NodePath("InvalidMask")
+
+[node name="PanelContainer Base" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer Base"]
+custom_minimum_size = Vector2(384, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer Base/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(128, 88)
+layout_mode = 2
+
+[node name="AnchorPresetButton" type="TextureButton" parent="PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+tooltip_text = "現在の Anchor の状態のイメージです
+Anchor のプリセット選択パネルを開きます"
+texture_normal = ExtResource("17_fhcid")
+stretch_mode = 0
+
+[node name="Anchor Type X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 8.0
+offset_bottom = -1.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+theme_override_font_sizes/font_size = 12
+text = "center"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor Type Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 36.0
+offset_right = 44.0
+offset_bottom = 55.0
+grow_vertical = 2
+rotation = -1.5708
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+theme_override_font_sizes/font_size = 12
+text = "bottom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anchor Toggle Button" type="TextureButton" parent="PanelContainer Base/VBoxContainer/HBoxContainer/PanelContainer/AnchorPresetButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_55pn8")
+texture_pressed = ExtResource("2_55pn8")
+texture_hover = ExtResource("2_55pn8")
+texture_disabled = ExtResource("2_55pn8")
+texture_focused = ExtResource("2_55pn8")
+
+[node name="VBoxContainer Area" type="VBoxContainer" parent="PanelContainer Base/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer Position" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area"]
+layout_mode = 2
+
+[node name="Label X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Anchorの横(X)方向の最小値と最大値が同じ場合 :
+→表記は X
+　Anchorの横(X)方向でのオフセット値になります
+
+Anchorの横(X)方向の最小値と最大値が違う場合 :
+→表記は L
+　矩形領域の横(X)方向の左側のマージン(余白)値となります
+　　マージン値 > 0 : 矩形領域の横幅(W)が減少する
+　　マージン値 < 0 : 矩形領域の横幅(W)が増加する"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "X
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox X" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Anchorの縦(Y)方向の最小値と最大値が同じ場合 :
+→表記は Y
+　Anchorの縦(Y)方向でのオフセット値になります
+
+Anchorの縦(Y)方向の最小値と最大値が違う場合 :
+→表記は T
+　矩形領域の縦(Y)方向の上側のマージン(余白)値となります
+　　マージン値 > 0 : 矩形領域の縦幅(H)が減少する
+　　マージン値 < 0 : 矩形領域の縦幅(H)が増加する"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Y
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Y" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Position"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="HBoxContainer Size" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area"]
+layout_mode = 2
+
+[node name="Label W" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Anchorの横(X)方向の最小値と最大値が同じ場合 :
+→表記は W
+　矩形領域の横(X)方向の幅(W)となります
+
+Anchorの横(X)方向の最小値と最大値が違う場合 :
+→表記は R
+　矩形領域の横(X)方向の右側のマージン(余白)値となります
+　　マージン値 > 0 : 矩形領域の横幅(W)が減少する
+　　マージン値 < 0 : 矩形領域の横幅(W)が増加する"
+mouse_filter = 0
+text = "W
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox W" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label H" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Anchorの縦(Y)方向の最小値と最大値が同じ場合 :
+→表記は H
+　矩形領域の縦(Y)方向の幅(H)となります
+
+Anchorの縦(Y)方向の最小値と最大値が違う場合 :
+→表記は B
+　矩形領域の縦(Y)方向の下側のマージン(余白)値となります
+　　マージン値 > 0 : 矩形領域の縦幅(H)が減少する
+　　マージン値 < 0 : 矩形領域の縦幅(H)が増加する"
+mouse_filter = 0
+text = "H
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox H" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer/VBoxContainer Area/HBoxContainer Size"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer Base/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+
+[node name="Anchor Toggle Button" type="TextureButton" parent="PanelContainer Base/VBoxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+tooltip_text = "Anchor の詳細な値の表示のオンオフを行います"
+texture_normal = ExtResource("2_55pn8")
+texture_pressed = ExtResource("2_55pn8")
+texture_hover = ExtResource("2_55pn8")
+texture_disabled = ExtResource("2_55pn8")
+texture_focused = ExtResource("2_55pn8")
+
+[node name="HBoxContainer Anchor Min" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label Anchor Min" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の最小値側を指定します
+横(X)方向 ( 0.0 = 親の左端 ～ 0.5 = 親の中央 ～ 1.0 = 親の右端 )
+縦(Y)方向 ( 0.0 = 親の上端 ～ 0.5 = 親の中央 ～ 1.0 = 親の下端 )
+
+※Anchorの最小値と最大値が同じ場合、
+　Anchorの位置に自身の基準位置(Pivot)が来るように調整されます
+※Anchorの最小値と最大値が違う場合、
+　Anchorの範囲に自身の矩形領域が合わさるよう調整されます"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Anchor Min"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の横(X)方向の最小値側を指定します
+横(X)方向 ( 0.0 = 親の左端 ～ 0.5 = 親の中央 ～ 1.0 = 親の右端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox X" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の縦(Y)方向の最小値側を指定します
+横(Y)方向 ( 0.0 = 親の上端 ～ 0.5 = 親の中央 ～ 1.0 = 親の下端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Y
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Y" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Min"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="HBoxContainer Anchor Max" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label Anchor Max" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の最大値側を指定します
+横(X)方向 ( 0.0 = 親の左端 ～ 0.5 = 親の中央 ～ 1.0 = 親の右端 )
+縦(Y)方向 ( 0.0 = 親の上端 ～ 0.5 = 親の中央 ～ 1.0 = 親の下端 )
+
+※Anchorの最小値と最大値が同じ場合、
+　Anchorの位置に自身の基準位置(Pivot)が来るように調整されます
+※Anchorの最小値と最大値が違う場合、
+　Anchorの範囲に自身の矩形領域が合わさるよう調整されます"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Anchor Max
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の横(X)方向の最大値側を指定します
+横(X)方向 ( 0.0 = 親の左端 ～ 0.5 = 親の中央 ～ 1.0 = 親の右端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox X" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "親の基準位置(Anchor)の縦(Y)方向の最大値側を指定します
+横(Y)方向 ( 0.0 = 親の上端 ～ 0.5 = 親の中央 ～ 1.0 = 親の下端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Y
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Y" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Anchor Max"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="HBoxContainer Pivot" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label Pivot" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Pivot"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の基準位置です
+横(X)方向 ( 0.0 = 左端 ～ 0.5 = 中央 ～ 1.0 = 右端 )
+縦(Y)方向 ( 0.0 = 上端 ～ 0.5 = 中央 ～ 1.0 = 下端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Pivot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Pivot"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の横(X)方向の基準位置です
+横(X)方向 ( 0.0 = 左端 ～ 0.5 = 中央 ～ 1.0 = 右端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox X" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Pivot"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Pivot"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の縦(Y)方向の基準位置です
+縦(Y)方向 ( 0.0 = 上端 ～ 0.5 = 中央 ～ 1.0 = 下端 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Y
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Y" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Pivot"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="HBoxContainer Rotation" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label Rotation" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Rotation"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の回転角度(Degree)です
+基準位置(Pivot)を中心として回転します
+(-360.0 ～ 0.0 ～ +360.0 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Rotation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label Z" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Rotation"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "Z軸回転を行います
+　正の値 → 右回転
+　負の値 → 左回転"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Z" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Rotation"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -360.0
+max_value = 360.0
+step = 0.001
+alignment = 2
+
+[node name="HBoxContainer Scale" type="HBoxContainer" parent="PanelContainer Base/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label Scale" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Scale"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の拡大(縮小)係数です
+基準位置(Pivot)を中心として、拡大(縮小)が行われます
+横(X)方向 ( 1.0 = 原寸大 )
+縦(Y)方向 ( 1.0 = 原寸大 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Scale"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label X" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Scale"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の横(X)方向の拡大(縮小)係数です
+横(X)方向 ( 1.0 = 原寸大 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox X" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Scale"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Label Y" type="Label" parent="PanelContainer Base/VBoxContainer/HBoxContainer Scale"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+tooltip_text = "矩形領域の縦(Y)方向の拡大(縮小)係数です
+縦(Y)方向 ( 1.0 = 原寸大 )"
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("2_afgy0")
+text = "Y
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpinBox Y" type="SpinBox" parent="PanelContainer Base/VBoxContainer/HBoxContainer Scale"]
+custom_minimum_size = Vector2(96, 30)
+layout_mode = 2
+min_value = -100000.0
+max_value = 100000.0
+step = 0.001
+alignment = 2
+
+[node name="Anchor Preset Selector" type="Panel" parent="." node_paths=PackedStringArray("_Cursor", "_CursorX", "_CursorY", "_AnchroPresetButtons", "_CloseButton")]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(384, 278)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_16aj4")
+_Cursor = NodePath("PanelContainer/VBoxContainer/Panel/Cursor A")
+_CursorX = NodePath("PanelContainer/VBoxContainer/Panel/Cursor X")
+_CursorY = NodePath("PanelContainer/VBoxContainer/Panel/Cursor Y")
+_AnchroPresetButtons = [NodePath("PanelContainer/VBoxContainer/Panel/AA"), NodePath("PanelContainer/VBoxContainer/Panel/LA"), NodePath("PanelContainer/VBoxContainer/Panel/CA"), NodePath("PanelContainer/VBoxContainer/Panel/RA"), NodePath("PanelContainer/VBoxContainer/Panel/SA"), NodePath("PanelContainer/VBoxContainer/Panel/AT"), NodePath("PanelContainer/VBoxContainer/Panel/LT"), NodePath("PanelContainer/VBoxContainer/Panel/CT"), NodePath("PanelContainer/VBoxContainer/Panel/RT"), NodePath("PanelContainer/VBoxContainer/Panel/ST"), NodePath("PanelContainer/VBoxContainer/Panel/AM"), NodePath("PanelContainer/VBoxContainer/Panel/LM"), NodePath("PanelContainer/VBoxContainer/Panel/CM"), NodePath("PanelContainer/VBoxContainer/Panel/RM"), NodePath("PanelContainer/VBoxContainer/Panel/SM"), NodePath("PanelContainer/VBoxContainer/Panel/AB"), NodePath("PanelContainer/VBoxContainer/Panel/LB"), NodePath("PanelContainer/VBoxContainer/Panel/CB"), NodePath("PanelContainer/VBoxContainer/Panel/RB"), NodePath("PanelContainer/VBoxContainer/Panel/SB"), NodePath("PanelContainer/VBoxContainer/Panel/AS"), NodePath("PanelContainer/VBoxContainer/Panel/LS"), NodePath("PanelContainer/VBoxContainer/Panel/CS"), NodePath("PanelContainer/VBoxContainer/Panel/RS"), NodePath("PanelContainer/VBoxContainer/Panel/SS")]
+_CloseButton = NodePath("PanelContainer/VBoxContainer/CloseButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="Anchor Preset Selector"]
+layout_mode = 0
+offset_left = 112.0
+offset_right = 352.0
+offset_bottom = 272.0
+tooltip_text = "親の基準位置(Anchor)のプリセットを選択する事が出来ます"
+theme_override_styles/panel = ExtResource("32_w54wh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Anchor Preset Selector/PanelContainer"]
+custom_minimum_size = Vector2(224, 0)
+layout_mode = 2
+
+[node name="Title" type="TextureRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("33_kwfv2")
+stretch_mode = 2
+
+[node name="Panel" type="Panel" parent="Anchor Preset Selector/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(224, 224)
+layout_mode = 2
+
+[node name="Cursor A" type="ReferenceRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+visible = false
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 42.0
+offset_bottom = 42.0
+border_color = Color(1, 1, 0, 1)
+
+[node name="Cursor X" type="ReferenceRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+visible = false
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 42.0
+border_color = Color(1, 1, 1, 1)
+
+[node name="Cursor Y" type="ReferenceRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+visible = false
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 0
+offset_left = 6.0
+offset_top = 54.0
+offset_right = 42.0
+offset_bottom = 90.0
+border_color = Color(1, 1, 1, 1)
+
+[node name="AA" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 40.0
+tooltip_text = "Anchor の設定が横(X)方向・縦(Y)方向ともに
+範囲(カスタム)である事を示します
+プリセットとして選択する事は出来ません"
+texture_normal = ExtResource("7_32pcd")
+
+[node name="LA" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 88.0
+offset_bottom = 40.0
+tooltip_text = "Anchor の設定が
+横(X)方向は左端である事を示します"
+texture_normal = ExtResource("8_iw08n")
+
+[node name="CA" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 40.0
+tooltip_text = "Anchor の設定が
+横(X)方向は中央である事を示します"
+texture_normal = ExtResource("9_2gxqs")
+
+[node name="RA" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 40.0
+tooltip_text = "Anchor の設定が
+横(X)方向は右端である事を示します"
+texture_normal = ExtResource("10_wis5w")
+
+[node name="SA" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 40.0
+tooltip_text = "Anchor の設定が
+横(X)方向は全体である事を示します"
+texture_normal = ExtResource("11_l5cf4")
+
+[node name="AT" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 40.0
+offset_bottom = 88.0
+tooltip_text = "Anchor の設定が
+縦(Y)方向は上端である事を示します"
+texture_normal = ExtResource("12_vbqhb")
+
+[node name="LT" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 88.0
+offset_bottom = 88.0
+tooltip_text = "Anchor の設定が
+横(X)方向は左端・縦(Y)方向は上端
+である事を示します"
+texture_normal = ExtResource("3_0tsnb")
+
+[node name="CT" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 56.0
+offset_right = 128.0
+offset_bottom = 88.0
+tooltip_text = "Anchor の設定が
+横(X)方向は中央・縦(Y)方向は上端
+である事を示します"
+texture_normal = ExtResource("4_f480j")
+
+[node name="RT" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 56.0
+offset_right = 168.0
+offset_bottom = 88.0
+tooltip_text = "Anchor の設定が
+横(X)方向は右端・縦(Y)方向は上端
+である事を示します"
+texture_normal = ExtResource("5_vc4ts")
+
+[node name="ST" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 56.0
+offset_right = 216.0
+offset_bottom = 88.0
+tooltip_text = "Anchor の設定が
+横(X)方向は全体・縦(Y)方向は上端
+である事を示します"
+texture_normal = ExtResource("11_b1jfh")
+
+[node name="AM" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 40.0
+offset_bottom = 128.0
+tooltip_text = "Anchor の設定が
+縦(Y)方向は中央である事を示します"
+texture_normal = ExtResource("17_fhcid")
+
+[node name="LM" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 96.0
+offset_right = 88.0
+offset_bottom = 128.0
+tooltip_text = "Anchor の設定が
+横(X)方向は左端・縦(Y)方向は中央
+である事を示します"
+texture_normal = ExtResource("6_b64fu")
+
+[node name="CM" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 128.0
+tooltip_text = "Anchor の設定が
+横(X)方向は中央・縦(Y)方向は中央
+である事を示します"
+texture_normal = ExtResource("7_yovab")
+
+[node name="RM" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 96.0
+offset_right = 168.0
+offset_bottom = 128.0
+tooltip_text = "Anchor の設定が
+横(X)方向は右端・縦(Y)方向は中央
+である事を示します"
+texture_normal = ExtResource("8_uaqlf")
+
+[node name="SM" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 216.0
+offset_bottom = 128.0
+tooltip_text = "Anchor の設定が
+横(X)方向は全体・縦(Y)方向は中央
+である事を示します"
+texture_normal = ExtResource("12_461vv")
+
+[node name="AB" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 40.0
+offset_bottom = 168.0
+tooltip_text = "Anchor の設定が
+縦(Y)方向は下端である事を示します"
+texture_normal = ExtResource("22_xj28t")
+
+[node name="LB" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 136.0
+offset_right = 88.0
+offset_bottom = 168.0
+tooltip_text = "Anchor の設定が
+横(X)方向は左端・縦(Y)方向は下端
+である事を示します"
+texture_normal = ExtResource("9_emhdu")
+
+[node name="CB" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 136.0
+offset_right = 128.0
+offset_bottom = 168.0
+tooltip_text = "Anchor の設定が
+横(X)方向は中央・縦(Y)方向は下端
+である事を示します"
+texture_normal = ExtResource("1_cak1f")
+
+[node name="RB" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 136.0
+offset_right = 168.0
+offset_bottom = 168.0
+tooltip_text = "Anchor の設定が
+横(X)方向は右端・縦(Y)方向は下端
+である事を示します"
+texture_normal = ExtResource("10_36l5y")
+
+[node name="SB" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 136.0
+offset_right = 216.0
+offset_bottom = 168.0
+tooltip_text = "Anchor の設定が
+横(X)方向は全体・縦(Y)方向は下端
+である事を示します"
+texture_normal = ExtResource("13_bmk4c")
+
+[node name="AS" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 184.0
+offset_right = 40.0
+offset_bottom = 216.0
+tooltip_text = "Anchor の設定が
+縦(Y)方向は全体である事を示します"
+texture_normal = ExtResource("26_g61ff")
+
+[node name="LS" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 184.0
+offset_right = 88.0
+offset_bottom = 216.0
+tooltip_text = "Anchor の設定が
+横(X)方向は左端・縦(Y)方向は全体
+である事を示します"
+texture_normal = ExtResource("14_uvpus")
+
+[node name="CS" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 184.0
+offset_right = 128.0
+offset_bottom = 216.0
+tooltip_text = "Anchor の設定が
+横(X)方向は中央・縦(Y)方向は全体
+である事を示します"
+texture_normal = ExtResource("15_c475k")
+
+[node name="RS" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 184.0
+offset_right = 168.0
+offset_bottom = 216.0
+tooltip_text = "Anchor の設定が
+横(X)方向は右端・縦(Y)方向は全体
+である事を示します"
+texture_normal = ExtResource("16_lr8mt")
+
+[node name="SS" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 184.0
+offset_right = 216.0
+offset_bottom = 216.0
+tooltip_text = "Anchor の設定が
+横(X)方向は全体・縦(Y)方向は全体
+である事を示します"
+texture_normal = ExtResource("17_x4687")
+
+[node name="Line H" type="ColorRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(224, 2)
+layout_mode = 0
+offset_top = 48.0
+offset_right = 224.0
+offset_bottom = 50.0
+color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[node name="Line V" type="ColorRect" parent="Anchor Preset Selector/PanelContainer/VBoxContainer/Panel"]
+custom_minimum_size = Vector2(2, 224)
+layout_mode = 0
+offset_left = 48.0
+offset_right = 50.0
+offset_bottom = 224.0
+color = Color(0.498039, 0.498039, 0.498039, 1)
+
+[node name="CloseButton" type="TextureButton" parent="Anchor Preset Selector/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "Anchor のプリセット選択パネルを閉じます"
+texture_normal = ExtResource("32_ueuq5")
+
+[node name="InvalidMask" type="Panel" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.376471)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Annotation" type="Label" parent="InvalidMask"]
+custom_minimum_size = Vector2(384, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 88.0
+offset_right = 192.0
+offset_bottom = 120.0
+pivot_offset = Vector2(192, 16)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "コンテナであるため編集できません"
+horizontal_alignment = 1
+vertical_alignment = 1

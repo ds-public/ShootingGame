@@ -1,0 +1,230 @@
+[gd_scene load_steps=26 format=3 uid="uid://1kubujyk7ac3"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Player/Player.cs" id="1_1optd"]
+[ext_resource type="Shader" path="res://ReferencedAssets/Shaders/Interpolation.gdshader" id="2_lmkqe"]
+[ext_resource type="Texture2D" uid="uid://f82apddi3kh5" path="res://ReferencedAssets/Textures/Player.png" id="3_64kav"]
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Player/ShieldEffect.cs" id="3_ctfen"]
+[ext_resource type="Texture2D" uid="uid://c6qaoq303hvcx" path="res://ReferencedAssets/Textures/PlayerAura.png" id="4_au0ni"]
+[ext_resource type="FontFile" uid="uid://ccibogwvbsnpl" path="res://ReferencedAssets/Fonts/Xolonium-Regular.ttf" id="4_fd17k"]
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Player/TouchCircle.cs" id="4_kxcdr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isg8b"]
+resource_local_to_scene = true
+shader = ExtResource("2_lmkqe")
+shader_parameter/interpolation_value = 0.0
+shader_parameter/interpolation_color = Vector4(1, 1, 1, 1)
+shader_parameter/modulate_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pn5n"]
+atlas = ExtResource("3_64kav")
+region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36n11"]
+atlas = ExtResource("3_64kav")
+region = Rect2(20, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j76gm"]
+atlas = ExtResource("3_64kav")
+region = Rect2(0, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca5ou"]
+atlas = ExtResource("3_64kav")
+region = Rect2(0, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akkl7"]
+atlas = ExtResource("3_64kav")
+region = Rect2(40, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0730"]
+atlas = ExtResource("3_64kav")
+region = Rect2(40, 24, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lehnw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pn5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36n11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j76gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca5ou")
+}],
+"loop": true,
+"name": &"move_l",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akkl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0730")
+}],
+"loop": true,
+"name": &"move_r",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goirw"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(20, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlugc"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(20, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7cbi"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(0, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjf4p"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(0, 24, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xedsd"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(40, 0, 20, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04l40"]
+atlas = ExtResource("4_au0ni")
+region = Rect2(40, 24, 20, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lg08i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goirw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlugc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7cbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjf4p")
+}],
+"loop": true,
+"name": &"move_l",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xedsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04l40")
+}],
+"loop": true,
+"name": &"move_r",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_v43hw"]
+resource_name = "Aura"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D Aura:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.247059), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eb3dr"]
+_data = {
+"Aura": SubResource("Animation_v43hw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khli6"]
+size = Vector2(43, 43)
+
+[node name="Player" type="Area2D" node_paths=PackedStringArray("_AuraEffect", "_AuraEffectAnimation", "_ShieldEffect", "_TouchCircle", "_Sprite", "_Collision")]
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_mask = 12
+script = ExtResource("1_1optd")
+_AuraEffect = NodePath("AnimatedSprite2D Aura")
+_AuraEffectAnimation = NodePath("AnimatedSprite2D Aura/AnimationPlayer")
+_ShieldEffect = NodePath("ShieldEffect")
+_TouchCircle = NodePath("TouchCircle")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_isg8b")
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_lehnw")
+autoplay = "default"
+frame_progress = 0.0773461
+
+[node name="AnimatedSprite2D Aura" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.449709)
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_lg08i")
+autoplay = "default"
+frame_progress = 0.274489
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D Aura"]
+root_node = NodePath("../..")
+autoplay = "Aura"
+libraries = {
+"": SubResource("AnimationLibrary_eb3dr")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_khli6")
+
+[node name="ShieldEffect" type="Node2D" parent="."]
+texture_filter = 1
+script = ExtResource("3_ctfen")
+
+[node name="TouchCircle" type="Node2D" parent="."]
+texture_filter = 1
+script = ExtResource("4_kxcdr")
+
+[node name="TOUCH" type="Label" parent="TouchCircle"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = 12.0
+offset_right = 23.5
+offset_bottom = 49.0
+grow_horizontal = 2
+pivot_offset = Vector2(23.5, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("4_fd17k")
+theme_override_font_sizes/font_size = 10
+text = "TOUCH
+AND
+DRAG"
+horizontal_alignment = 1

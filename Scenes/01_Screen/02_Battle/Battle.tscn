@@ -1,0 +1,80 @@
+[gd_scene load_steps=56 format=3 uid="uid://dhm3c8mr4010m"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Battle.cs" id="1_f3nf3"]
+[ext_resource type="PackedScene" uid="uid://d3imrv5tp2vbo" path="res://Scenes/01_Screen/02_Battle/Logic/ShotWeakly.tscn" id="2_cvwvn"]
+[ext_resource type="PackedScene" uid="uid://d0dykes3xodjr" path="res://Scenes/01_Screen/02_Battle/Logic/ShotStrong.tscn" id="3_iuclx"]
+[ext_resource type="PackedScene" uid="uid://dw1bmgaep7d6q" path="res://Scenes/01_Screen/02_Battle/Logic/GravityBall.tscn" id="4_1p6ge"]
+[ext_resource type="PackedScene" uid="uid://b27hqesqh4eiw" path="res://Scenes/01_Screen/02_Battle/Logic/GravityWave.tscn" id="5_imvol"]
+[ext_resource type="PackedScene" uid="uid://du3rq2538k3kw" path="res://Scenes/01_Screen/02_Battle/Logic/Background.tscn" id="6_asmcw"]
+[ext_resource type="PackedScene" uid="uid://05nkmjnbbst8" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_012.tscn" id="6_dcwbh"]
+[ext_resource type="PackedScene" uid="uid://b8av267t40ds6" path="res://Scenes/01_Screen/02_Battle/Logic/Option.tscn" id="6_f8xrw"]
+[ext_resource type="PackedScene" uid="uid://dwsdx8b88ot70" path="res://Scenes/01_Screen/02_Battle/Logic/LaserSlim.tscn" id="7_7iamv"]
+[ext_resource type="PackedScene" uid="uid://cd52wb0tap8j0" path="res://Scenes/01_Screen/02_Battle/Logic/Item.tscn" id="7_sefkj"]
+[ext_resource type="PackedScene" uid="uid://cbjh16yn0s56c" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_013.tscn" id="7_uo3dy"]
+[ext_resource type="PackedScene" uid="uid://bj3nbo0pnfqc6" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_000.tscn" id="7_w01ta"]
+[ext_resource type="PackedScene" uid="uid://1kubujyk7ac3" path="res://Scenes/01_Screen/02_Battle/Logic/Player.tscn" id="7_x2jlk"]
+[ext_resource type="PackedScene" uid="uid://b8k5q2rpksnwm" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_001.tscn" id="8_3o7kf"]
+[ext_resource type="PackedScene" uid="uid://bbe8gjml8hbj6" path="res://Scenes/01_Screen/02_Battle/UI/HUD.tscn" id="8_3qdps"]
+[ext_resource type="PackedScene" uid="uid://djmfxgh7876v6" path="res://Scenes/01_Screen/02_Battle/Logic/Bomb.tscn" id="8_kvn7b"]
+[ext_resource type="PackedScene" uid="uid://bf3bpr7i5ffcv" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_014.tscn" id="8_lb7he"]
+[ext_resource type="PackedScene" uid="uid://8l2qtfnkc1ai" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_002.tscn" id="9_8pm51"]
+[ext_resource type="PackedScene" uid="uid://bxd7k2wuyvxa5" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_003.tscn" id="10_4cb8q"]
+[ext_resource type="PackedScene" uid="uid://0kr2j28txvkm" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_004.tscn" id="11_nbmyo"]
+[ext_resource type="PackedScene" uid="uid://bvyd5y3d65ne4" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_005.tscn" id="12_4wmin"]
+[ext_resource type="PackedScene" uid="uid://diocnxxcpfw3d" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_022.tscn" id="12_h2rr5"]
+[ext_resource type="PackedScene" uid="uid://drdp38kox7hw3" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_010.tscn" id="12_wkb1r"]
+[ext_resource type="PackedScene" uid="uid://dejalapxy4ul0" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_011.tscn" id="13_c2gi7"]
+[ext_resource type="PackedScene" uid="uid://c3e518uv2i5jp" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_006.tscn" id="13_qacb5"]
+[ext_resource type="PackedScene" uid="uid://lxn1pu3s3uki" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_007.tscn" id="14_cigdb"]
+[ext_resource type="PackedScene" uid="uid://cjgpadmfua0d0" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_020.tscn" id="14_u4t14"]
+[ext_resource type="PackedScene" uid="uid://dp4kyhvk2ij4s" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_008.tscn" id="15_f4q42"]
+[ext_resource type="PackedScene" uid="uid://bfmgaygj0rfn7" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/000_009/Enemy_009.tscn" id="16_hj1q3"]
+[ext_resource type="PackedScene" uid="uid://0wm3r66mmcbv" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_015.tscn" id="18_5v62k"]
+[ext_resource type="PackedScene" uid="uid://c8dik3bqx6p68" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_016.tscn" id="19_16lhq"]
+[ext_resource type="PackedScene" uid="uid://b4scpgbf33kb2" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_021.tscn" id="20_5ss8p"]
+[ext_resource type="PackedScene" uid="uid://bg0i4lqnmkc04" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_017.tscn" id="20_ywob1"]
+[ext_resource type="PackedScene" uid="uid://d08iymhfkhvda" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_018.tscn" id="21_pcvmj"]
+[ext_resource type="PackedScene" uid="uid://cx56wkucvllga" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/010_019/Enemy_019.tscn" id="22_5g4fy"]
+[ext_resource type="PackedScene" uid="uid://bccwe8vxmlt5h" path="res://Scenes/01_Screen/02_Battle/Logic/Missile.tscn" id="24_x417o"]
+[ext_resource type="PackedScene" uid="uid://ddklybgvq7omp" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_023.tscn" id="26_4l0v3"]
+[ext_resource type="PackedScene" uid="uid://5kkhn0eemegg" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/990_999/Enemy_999.tscn" id="26_f0dlm"]
+[ext_resource type="PackedScene" uid="uid://dpiqy22kmtyil" path="res://Scenes/01_Screen/02_Battle/Logic/BulletSmall.tscn" id="26_k3i3r"]
+[ext_resource type="PackedScene" uid="uid://cryd7m06dswus" path="res://Scenes/01_Screen/02_Battle/Logic/BulletLarge.tscn" id="27_cgmyq"]
+[ext_resource type="PackedScene" uid="uid://46xsuvoq6r5u" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_024.tscn" id="27_dcxha"]
+[ext_resource type="PackedScene" uid="uid://db5swxa5sxjha" path="res://Scenes/01_Screen/02_Battle/Logic/ShockWave.tscn" id="28_6q3bx"]
+[ext_resource type="PackedScene" uid="uid://bgp5xskt0ohcw" path="res://Scenes/01_Screen/02_Battle/Logic/LaserTiny.tscn" id="28_c3fx1"]
+[ext_resource type="PackedScene" uid="uid://b3w4a4ra3osfo" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_025.tscn" id="28_gt0ui"]
+[ext_resource type="PackedScene" uid="uid://dikhurvy77l5l" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_026.tscn" id="29_xo70r"]
+[ext_resource type="PackedScene" uid="uid://wfd08lyfm6vb" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_027.tscn" id="30_2h8ys"]
+[ext_resource type="PackedScene" uid="uid://djbyp6vxnegdl" path="res://Scenes/01_Screen/02_Battle/Logic/LaserWide.tscn" id="30_wmq6q"]
+[ext_resource type="PackedScene" uid="uid://cswhb2r43wru2" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_028.tscn" id="31_m2n6q"]
+[ext_resource type="PackedScene" uid="uid://cj5squ0t3syjb" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_029.tscn" id="36_op6fd"]
+[ext_resource type="PackedScene" uid="uid://3rueqktlp4ms" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_030.tscn" id="37_w8mv0"]
+[ext_resource type="PackedScene" uid="uid://ofvx8b5jaul8" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/020_029/Enemy_031.tscn" id="38_3alp2"]
+[ext_resource type="PackedScene" uid="uid://4x7i6e7wffuv" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/0030_0039/Enemy_032.tscn" id="38_osipn"]
+[ext_resource type="PackedScene" uid="uid://dj3qaqngj3tkg" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/0030_0039/Enemy_033.tscn" id="39_lrqrk"]
+[ext_resource type="PackedScene" uid="uid://8lf2535mie17" path="res://Scenes/01_Screen/02_Battle/Logic/Enemies/0030_0039/Enemy_034.tscn" id="40_giiox"]
+[ext_resource type="PackedScene" uid="uid://b5r0xwmvvv1np" path="res://Scenes/01_Screen/02_Battle/Logic/Explosion.tscn" id="46_chrjc"]
+
+[node name="Scene" type="Node" node_paths=PackedStringArray("_Screen", "_Background", "_Player", "_HUD")]
+script = ExtResource("1_f3nf3")
+_Screen = NodePath("Screen")
+_Background = NodePath("Screen/Background")
+_Player = NodePath("Screen/Player")
+_PlayerShots = [ExtResource("2_cvwvn"), ExtResource("3_iuclx"), ExtResource("4_1p6ge"), ExtResource("5_imvol")]
+_PlayerOptions = [ExtResource("6_f8xrw")]
+_Enemies = [ExtResource("7_w01ta"), ExtResource("8_3o7kf"), ExtResource("9_8pm51"), ExtResource("10_4cb8q"), ExtResource("11_nbmyo"), ExtResource("12_4wmin"), ExtResource("13_qacb5"), ExtResource("14_cigdb"), ExtResource("15_f4q42"), ExtResource("16_hj1q3"), ExtResource("12_wkb1r"), ExtResource("13_c2gi7"), ExtResource("6_dcwbh"), ExtResource("7_uo3dy"), ExtResource("8_lb7he"), ExtResource("18_5v62k"), ExtResource("19_16lhq"), ExtResource("20_ywob1"), ExtResource("21_pcvmj"), ExtResource("22_5g4fy"), ExtResource("14_u4t14"), ExtResource("20_5ss8p"), ExtResource("12_h2rr5"), ExtResource("26_4l0v3"), ExtResource("27_dcxha"), ExtResource("28_gt0ui"), ExtResource("29_xo70r"), ExtResource("30_2h8ys"), ExtResource("31_m2n6q"), ExtResource("36_op6fd"), ExtResource("37_w8mv0"), ExtResource("38_3alp2"), ExtResource("38_osipn"), ExtResource("39_lrqrk"), ExtResource("40_giiox"), ExtResource("26_f0dlm")]
+_EnemyBullets = [ExtResource("26_k3i3r"), ExtResource("27_cgmyq"), ExtResource("28_6q3bx"), ExtResource("28_c3fx1"), ExtResource("7_7iamv"), ExtResource("30_wmq6q"), ExtResource("24_x417o")]
+_Item = ExtResource("7_sefkj")
+_Bomb = ExtResource("8_kvn7b")
+_Explosion = ExtResource("46_chrjc")
+_HUD = NodePath("Screen/HUD")
+
+[node name="Screen" type="Node2D" parent="."]
+
+[node name="Background" parent="Screen" instance=ExtResource("6_asmcw")]
+
+[node name="Player" parent="Screen" instance=ExtResource("7_x2jlk")]
+position = Vector2(270, 640)
+
+[node name="HUD" parent="Screen" instance=ExtResource("8_3qdps")]

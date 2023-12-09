@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf3bpr7i5ffcv"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/Enemy.cs" id="1_npdk1"]
+[ext_resource type="Shader" path="res://ReferencedAssets/Shaders/Interpolation.gdshader" id="2_6mqsq"]
+[ext_resource type="Texture2D" uid="uid://b3rptpt7xa0e0" path="res://ReferencedAssets/Textures/Enemy/Enemy_014.png" id="2_mx3rn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_siy4u"]
+resource_local_to_scene = true
+shader = ExtResource("2_6mqsq")
+shader_parameter/interpolation_value = 0.0
+shader_parameter/interpolation_color = Vector4(1, 1, 1, 1)
+shader_parameter/modulate_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7wk8"]
+atlas = ExtResource("2_mx3rn")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87usj"]
+atlas = ExtResource("2_mx3rn")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ygcj"]
+atlas = ExtResource("2_mx3rn")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlqh6"]
+atlas = ExtResource("2_mx3rn")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6b5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7wk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87usj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ygcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlqh6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gwn1"]
+
+[node name="Enemy_S_014" type="Area2D" node_paths=PackedStringArray("_Sprite", "_Collision")]
+texture_filter = 1
+collision_layer = 4
+collision_mask = 34
+script = ExtResource("1_npdk1")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_siy4u")
+scale = Vector2(3.6, 3.6)
+sprite_frames = SubResource("SpriteFrames_k6b5n")
+autoplay = "default"
+frame_progress = 0.242499
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.6, 3.2)
+shape = SubResource("RectangleShape2D_4gwn1")

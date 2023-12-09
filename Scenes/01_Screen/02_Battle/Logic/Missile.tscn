@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://bccwe8vxmlt5h"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/EnemyBullet.cs" id="1_heqwg"]
+[ext_resource type="Shader" path="res://ReferencedAssets/Shaders/Interpolation.gdshader" id="2_hlwrf"]
+[ext_resource type="Texture2D" uid="uid://c1hklfy3vksg1" path="res://ReferencedAssets/Textures/Missile.png" id="3_x701d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_po5cc"]
+resource_local_to_scene = true
+shader = ExtResource("2_hlwrf")
+shader_parameter/interpolation_value = 0.0
+shader_parameter/interpolation_color = Vector4(1, 1, 1, 1)
+shader_parameter/modulate_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apf36"]
+atlas = ExtResource("3_x701d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fym0u"]
+atlas = ExtResource("3_x701d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lr3dw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apf36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fym0u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2y2c"]
+
+[node name="Missile" type="Area2D" node_paths=PackedStringArray("_Sprite", "_Collision")]
+texture_filter = 1
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 35
+script = ExtResource("1_heqwg")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_po5cc")
+scale = Vector2(1.4, 1.4)
+sprite_frames = SubResource("SpriteFrames_lr3dw")
+autoplay = "default"
+frame_progress = 0.634755
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6, 1)
+shape = SubResource("RectangleShape2D_u2y2c")

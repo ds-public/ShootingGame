@@ -1,0 +1,8 @@
+# Normalize EOL for all files that Git considers text files.
+
+*.txt text eol=lf encoding=utf-8
+*.cs diff=csharp text eol=lf encoding=utf-8
+*.json text eol=lf encoding=utf-8
+*.csv text eol=lf encoding=utf-8
+*.xml text eol=lf encoding=utf-8
+

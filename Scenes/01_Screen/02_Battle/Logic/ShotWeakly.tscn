@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3imrv5tp2vbo"]
+
+[ext_resource type="Script" path="res://Scripts/01_Screen/02_Battle/Logic/PlayerShot.cs" id="1_26s1b"]
+[ext_resource type="Shader" path="res://ReferencedAssets/Shaders/Interpolation.gdshader" id="2_jylrc"]
+[ext_resource type="Texture2D" uid="uid://dgld8abti77ko" path="res://ReferencedAssets/Textures/ShotWeakly.png" id="2_ye1gh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hraxe"]
+resource_local_to_scene = true
+shader = ExtResource("2_jylrc")
+shader_parameter/interpolation_value = 0.0
+shader_parameter/interpolation_color = Vector4(1, 1, 1, 1)
+shader_parameter/modulate_color = Vector4(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv7u8"]
+atlas = ExtResource("2_ye1gh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpg31"]
+atlas = ExtResource("2_ye1gh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4t1l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv7u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpg31")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80qf2"]
+
+[node name="PlayerShot" type="Area2D" node_paths=PackedStringArray("_Sprite", "_Collision")]
+texture_filter = 1
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_26s1b")
+_Sprite = NodePath("AnimatedSprite2D")
+_Collision = NodePath("CollisionShape2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_hraxe")
+sprite_frames = SubResource("SpriteFrames_4t1l3")
+autoplay = "default"
+frame_progress = 0.655659
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_80qf2")

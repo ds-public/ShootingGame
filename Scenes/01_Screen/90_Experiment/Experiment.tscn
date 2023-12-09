@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://4ft8x3jkisqp"]
+
+[ext_resource type="Texture2D" uid="uid://btoi2lxakbogl" path="res://ReferencedAssets/Textures/Icon.png" id="1_nwuwn"]
+[ext_resource type="Texture2D" uid="uid://et7fx7twhf84" path="res://icon.svg" id="2_eewex"]
+[ext_resource type="Script" path="res://Scripts/90_Experiment/SampleSprite.cs" id="3_kjby0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Sample" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("1_nwuwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+rotation = 186410.0
+texture = ExtResource("2_eewex")
+script = ExtResource("3_kjby0")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(128, 128)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_eewex")
