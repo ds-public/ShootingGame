@@ -174,7 +174,7 @@ namespace Sample_001
 			{
 				float swap = min ;
 				min = max ;
-				min = swap ;
+				max = swap ;
 			}
 
 			return ( GD.Randf() * ( max - min ) ) + min ;
